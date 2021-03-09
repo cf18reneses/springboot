@@ -1,0 +1,10 @@
+com\codesplai\adaptacar\controllers\UsuarioController.class
+com\codesplai\adaptacar\models\Adaptaciones.class
+com\codesplai\adaptacar\AdaptacarApplication.class
+com\codesplai\adaptacar\models\Imagen.class
+com\codesplai\adaptacar\models\Usuario.class
+com\codesplai\adaptacar\models\Post.class
+com\codesplai\adaptacar\repositories\UsuarioRepository.class
+com\codesplai\adaptacar\models\Coche.class
+com\codesplai\adaptacar\models\Color.class
+com\codesplai\adaptacar\ServletInitializer.class

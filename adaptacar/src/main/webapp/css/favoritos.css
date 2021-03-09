@@ -1,0 +1,34 @@
+.card-footer i{
+   color: 5bc0de;
+}
+.card-footer a:hover i{
+    color:#5bc0de;
+}
+.card-footer .ad-btn {
+    background-color: #343a40 !important;
+    border: #343a40 solid 2px !important;
+    color: #5bc0de!important;
+    margin: auto !important;  
+}
+.card-footer .ad-btn:hover {
+    background-color: transparent !important;
+    border: #5bc0de solid 2px !important;
+    margin: auto !important;  
+}
+.modal {
+    text-align: center;
+}
+.modal-header { 
+    display: block;
+}
+.modal-footer {
+    border-top: none;
+    justify-content: center;
+}
+.eliminar{
+    background-color: #fd6c67;
+    border: #fd6c67 solid 2px;
+}    
+.eliminar:hover{
+    border: #fd6c67 solid 2px;
+} 

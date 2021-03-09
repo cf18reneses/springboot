@@ -1,0 +1,257 @@
+#main{
+    min-height: 53%;
+}
+
+.navbar .container-fluid{
+    display: inline;
+}
+.form-inline .form-control {
+    width: 100%;  
+}
+nav .form-inline{
+    flex-flow: row;
+}
+
+button.btn.btn-outline-info.btn-sm{
+    float: right;
+    margin-left: 4px;
+    margin-bottom: 10px;
+}
+
+#logo{
+    width: 80px;
+    /*position: absolute;*/
+}
+#user .dropdown-menu {
+    top: 0;
+}
+#user > a{
+    font-size: xx-large;
+    color: white;
+}
+#user > a:hover {
+    color: #5bc0de;
+}
+#user  > a{
+    float: right;
+    text-decoration: none;
+}
+#user span {
+    font-size: medium;
+    margin-right: 10px;
+}
+
+
+/* Deslplegable lateral*/
+
+/* El menú de navegación lateral */
+.sidenav {
+    height: 100%; /* 100% Altura completa */
+    width: 0; /* 0 ancho - cambie esto con JavaScript */
+    position: fixed; /* Permanecer en su lugar */
+    z-index: 1; /* Estancia en la parte superior */
+    top: 0;
+    left: 0;
+    background-color: #5bc0de; 
+    overflow-x: hidden; /* Deshabilitar el desplazamiento horizontal */
+    padding-top: 60px; /* Coloque el contenido a 60 px de la parte superior */
+    transition: 0.5s; /* 0.5 segundo efecto de transición para deslizar en el sidenav */
+}
+ 
+/* Los enlaces del menú de navegación */
+.sidenav a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181;
+    display: block;
+    transition: 0.3s
+}
+ 
+/* Cuando pasas el mouse sobre los enlaces de navegación, cambia su color */
+.sidenav a:hover, .offcanvas a:focus{
+    color: #f1f1f1;
+}
+ 
+/* Coloque y aplique estilo al botón de cierre (esquina superior derecha) */
+.sidenav .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+}
+ 
+/* Estilo del contenido de la página: use esto si desea empujar el contenido de la página hacia la derecha cuando abre la navegación lateral */
+#main {
+    transition: margin-left .5s;
+    padding: 20px;
+    overflow:hidden;
+    width:100%;
+}
+body {
+  overflow-x: hidden;
+}
+ 
+/* Agregue un color de fondo negro a la navegación superior */
+.topnav {
+    background-color: #5bc0de;
+    overflow: hidden;
+    display: flex;
+    justify-content: space-around;
+}
+ 
+/* Aplicar estilo a los enlaces dentro de la barra de navegación */
+.topnav a {
+    float: left;
+    display: block;
+    color: #f2f2f2;
+    text-align: center;
+    width: 100%;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+}
+ 
+/* Cambiar el color de los enlaces al pasar el mouse */
+.topnav a:hover {
+    background-color: #ddd;
+    color: #292b2c;
+}
+ 
+/* Agrega un color al enlace activo / actual */
+.topnav a.active {
+    background-color: #4CAF50;
+    color: white;
+}
+
+/*Slider Rango*/
+.slidecontainer{ 
+    margin-left: 2%;
+    display: flex; 
+}
+.slidecontainer h4{ 
+    margin-top: auto;
+}
+/*Estilo Boton*/
+.ad-btn {
+    text-transform: uppercase;
+    width: 200px;
+    height: 40px;
+    border-radius: 80px;
+    font-size: 16px;
+    line-height: 35px ;
+    text-align: center;
+    border: 2px solid #5bc0de;
+    display: block;
+    text-decoration: none;
+    color: #000;      
+    position: relative;
+    background-color: #5bc0de;
+    letter-spacing: 2px;
+    word-spacing: 4px;
+}
+.ad-btn:hover {
+    background-color: #5bc0de;
+    color: #000;
+    border: 2px solid #5bc0de;
+    background: transparent;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    box-shadow: 12px 15px 20px 0px rgba(46,61,73,0.15);
+    letter-spacing: 3px;
+}
+.col-xs-5.col-sm-7.col-md-8.col-lg-9.col-xl-9{
+    height: 48px;
+  }
+.col-xs-5.col-sm-5.col-md-4.col-lg-3.col-xl-3{
+    height: 52px;
+  }
+.col-xm-10.offset-xm-2.col-sm-9.offset-sm-2.col-md-8.offset-md-2.col-lg-6.offset-lg-3.col-xl-6.offset-xl-3{
+    height: 54px;
+}
+.card.rounded p{
+    margin: auto;
+    text-align: center;
+}
+
+/*Footer*/
+footer{
+    background-color: #343a40;
+    color: white;
+    margin-bottom: 0px;
+}
+footer a{
+    color: #5bc0de;
+}
+footer .ad-btn { 
+    margin: 0px auto 1px auto;
+    width: 150px;
+}
+footer .ad-btn:hover {
+    background-color: #5bc0de;
+    color: #5bc0de;
+    border: 2px solid #5bc0de;
+    background: transparent;
+    
+}
+footer ul a {
+    text-transform: uppercase;
+    width: 40px;
+    height: 40px;
+    border-radius: 80px;
+    font-size: 16px;
+    line-height: 35px !important;
+    text-align: center;
+    border: 2px solid #5bc0de;
+    display: block;
+    text-decoration: none;
+    margin: 0px auto 20px auto;
+    color: #000;      
+    position: relative;
+    background-color: #5bc0de;
+}
+.fa, .fab, .fal, .far, .fas {
+    line-height: inherit;
+}
+i >.fa, .fab, .fal, .far, .fas {
+    line-height: 35px !important; 
+}
+footer ul a:hover {
+    background-color: #5bc0de;
+    color: #5bc0de;
+    border: 2px solid #5bc0de;
+    background: transparent;
+    transition: all 0.3s ease;
+    box-shadow: 12px 15px 20px 0px rgba(46,61,73,0.15);
+}
+ul{    
+    margin-bottom: 0rem!important;
+    margin-block-start: 0em !important;
+    margin-block-end: 0em !important;
+}
+ul.list-unstyled.list-inline.text-center{
+    margin-block-start: 0em !important;
+    margin-block-end: 0em !important;
+}
+footer img{
+    width: 25%;
+    margin: auto;
+}
+
+#tituloWed{
+    width: 200px;
+    position: absolute;
+    left: 100px;
+    top: 20px;
+}
+@media only screen and (max-width: 1205px) {
+    #tituloWed{
+        display: none;
+    }
+}
+@media only screen and (max-width: 580px) {
+    #logo{
+        width: 50px;
+    }
+}

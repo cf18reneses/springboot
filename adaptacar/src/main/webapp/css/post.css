@@ -1,0 +1,128 @@
+article#main{
+    max-width: 960;
+}
+#tituloCoche {
+    display: flex;
+    justify-content: space-between;
+}
+/*Atributos Post*/
+#atributos, #atributos2{
+    display: flex;
+    justify-content: space-around;
+}
+#atributos > div , #atributos2 > div {
+    text-align: center;
+}
+#atributos i, #atributos2 i {   
+    font-size: 40px;
+}
+.carousel-control-next, .carousel-control-prev {
+    width: 10%;
+} 
+.carousel-control-next i, .carousel-control-prev i{
+    color: #5bc0de;
+    font-size: xxx-large;
+} 
+/*Info Vendedor*/
+#vendedor{
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 0px;
+}
+
+/*Adaptaciones coche*/
+#adaptacionesPost {
+    display: flex;
+    justify-content: space-around;
+}
+#adaptacionesPost > span {
+    background: #5bc0de;
+    text-align: center;
+    border-radius: 30px 30px 30px 30px;
+    color: #000;
+    padding: 5px 10px;
+    font-size: 14px;
+}
+
+h5{
+    text-align: center;
+}
+/*PUNTUACIÓN*/
+#form {
+    width: 250px;
+    margin: 0 auto;
+    height: 50px; 
+}
+#form p {
+    text-align: center;
+    margin-bottom: 0rem;
+}  
+#form label {
+    font-size: 20px;
+} 
+input[type="radio"] {
+    display: none;
+} 
+.clasificacion label {
+    color: grey;
+    font-size: 2rem;
+    line-height: 35px;
+} 
+.clasificacion {
+    direction: rtl;
+    unicode-bidi: bidi-override;
+} 
+label:hover,
+label:hover ~ label {
+    color: orange;
+} 
+input[type="radio"]:checked ~ label {
+    color: orange;
+}
+/*FIN FUNTUACIÓN*/
+
+/*Botones*/
+#main .ad-btn {
+    width: 150px;
+ }
+#main .ad-btn:hover {
+   width: 150px;
+}
+
+/*Contactar*/
+textarea {
+    margin-bottom: 10px;
+}
+#enviar {
+    float:right;
+}
+#favorito  {
+    width: 100px!important;
+    height: 50px!important;
+    padding-top: 6px;
+    position: absolute;
+    left: 88%;
+    top: 1%;
+    z-index: 2;
+}
+#favorito {
+    color: white;
+    font-size: xx-large;
+}
+#favorito:hover {
+    color: #5bc0de;
+}
+#like{
+    display: none;
+}
+
+#map {
+	height: 250px;
+	width: 100%;
+}
+
+img.d-block.w-100{
+    margin: auto;
+    height: 517px;
+    width: auto !important;
+}

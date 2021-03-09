@@ -1,0 +1,305 @@
+<html>
+<head>
+    <meta charset="utf-8">
+    <!-- Font Awesome-->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+        integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
+        integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+    <!--  jQuery and Bootstrap Bundle (includes Popper) -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx"
+        crossorigin="anonymous"></script>
+
+    <!--  Archivos javaScrip -->
+    <script src="js/script.js" language="javascript" type="text/javascript"></script>
+    <script src="js/conectaApiPrueba.js" language="javascript" type="text/javascript"></script>
+
+    <!-- CSS -->
+    <link href="css/global.css" rel="stylesheet" type="text/css">
+    <link href="css/home.css" rel="stylesheet" type="text/css">
+    <link href="css/logIn.css" rel="stylesheet" type="text/css">
+    <link href="css/filtros.css" rel="stylesheet" type="text/css">
+
+    <title>Home</title>
+</head>
+
+<body onload="indexRegistrado()">
+    <nav class="navbar navbar-dark bg-dark">
+        <div class="container-fluid">
+            <div class="row">
+                <!-- Logotipo -->
+                <div class="col-xs-5 col-sm-7 col-md-8 col-lg-9 col-xl-9">
+                    <a class="navbar-brand" href="index.html"><img src="img/AdaptaCarLogo.png" id="logo"></a>
+                    <img src="img/AdaptacarNombre.png" id="tituloWed">
+                </div>
+                <div id="user" class="col-xs-5 col-sm-5 col-md-4 col-lg-3 col-xl-3">
+
+                    <a class="dropright" type="button" id="dropdownMenuButton" data-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false">
+                        <span>O.Reneses</span><i class="fas fa-user-circle"></i>
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+
+                        <a class="dropdown-item" href="#">Gestion de Cuenta</a>
+                        <a class="dropdown-item" href="#">Mensajes</a>
+                        <a class="dropdown-item" href="postcrear.html">Subir Anuncio</a>
+                        <a class="dropdown-item" href="favoritos.html">Favoritos</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="#">Cerrar Sesión</a>
+                    </div>
+                </div>
+                <!-- Barra Busqueda -->
+                <div
+                    class="col-xm-10 offset-xm-2 col-sm-9 offset-sm-2 col-md-8 offset-md-2 col-lg-6 offset-lg-3 col-xl-6 offset-xl-3">
+                    <form class="form-inline">
+                        <input class="form-control mr-sm-2" id="mySearch" type="search" placeholder="Buscar" onkeyup="buscador()" aria-label="Buscar">
+                        <button class="btn btn-outline-info my-2 my-sm-0" type="submit" onclick="buscador()">Buscar</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+
+    <div id="sideFilter" class="sidenav">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeFil()">&times;</a>
+        <a class="navbar-brand" href="#"><img src="img/AdaptacarNombre.png" width="180px"></a>
+        <h3>Filtrar</h3>
+        <div class="form-label-group">
+            <form>
+
+                <!-- COCHE / MARCA -->
+                <div>
+                    <select class="browser-default custom-select seleccionador" id="marca"
+                        onchange="seleccionaMarca()"></select>
+                </div>
+                <!-- MODELO -->
+                <div>
+                    <select class="browser-default custom-select seleccionador" id="modelo" onchange="filtradoAtributos()" disabled>
+                        <option selected="true" disabled="disabled">Modelo</option>
+                    </select>
+                </div>
+
+                <!-- ADAPTACIONES -->
+                <div>
+                    <a class="" data-toggle="collapse" href="#collapseAdaptaciones" role="button" aria-expanded="false"
+                        aria-controls="collapseAdaptaciones">
+                        Adaptaciones <i class="fas fa-angle-down"></i>
+                    </a>
+                    <div class="collapse" id="collapseAdaptaciones">
+
+                        <div class="card card-body" id="adaptacionesFiltro" ></div>
+                    </div>
+                </div>
+
+                <!-- AÑO -->
+                <div>
+                    <a class="" data-toggle="collapse" href="#collapseAnyo" role="button" aria-expanded="false"
+                        aria-controls="collapseAnyo">
+                        Año <i class="fas fa-angle-down"></i>
+                    </a>
+                    <div class="collapse" id="collapseAnyo">
+                        <div class="card card-body range">
+                            <span class="spanRange">1990</span>
+                            <input type="range" id="input-ano" min="1990" max="2021" value="2021" class="slider" onchange="filtradoAtributos()"
+                                oninput="this.nextElementSibling.value = this.value">
+                            <output>2020</output>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- PRECIO -->
+                <div>
+                    <a class="" data-toggle="collapse" href="#collapsePrecio" role="button" aria-expanded="false"
+                        aria-controls="collapsePrecio">
+                        Precio <i class="fas fa-angle-down"></i>
+                    </a>
+                    <div class="collapse" id="collapsePrecio">
+                        <div class="card card-body range">
+                            <span class="spanRange">0</span>
+                            <input type="range" id="input-precio" min="0" max="100000" value="-1" step="100" class="slider" onchange="filtradoAtributos()"
+                                oninput="this.nextElementSibling.value = this.value">
+                            <output>30000</output><span class="euro">€</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- KM -->
+                <div>
+                    <a class="" data-toggle="collapse" href="#collapsekilometro" role="button" aria-expanded="false"
+                    aria-controls="collapseKilometros">
+                    Kilometros <i class="fas fa-angle-down"></i>
+                </a>
+                <div class="collapse" id="collapseKilometro">
+                    <div class="card card-body range">
+                        <span class="spanRange">0 km</span>
+                        <input type="range" id="input-km" min="0" max="200000" value="0" step="1000" class="slider" onchange="filtradoAtributos()"
+                            oninput="this.nextElementSibling.value = this.value">
+                        <output>30000</output>
+                    </div>
+                </div>
+                </div>
+
+                <!-- CAVALLOS -->
+                <div>
+                    <a class="" data-toggle="collapse" href="#collapseCv" role="button" aria-expanded="false"
+                    aria-controls="collapseCv">
+                    CV <i class="fas fa-angle-down"></i>
+                </a>
+                <div class="collapse" id="collapseCv">
+                    <div class="card card-body range">
+                        <span class="spanRange">50 </span>
+                        <input type="range" id="input-cv" min="49" max="1000" value="0" step="10" class="slider" onchange="filtradoAtributos()"
+                            oninput="this.nextElementSibling.value = this.value">
+                        <output>150</output>
+                    </div>
+                </div>
+                </div>
+
+                <!-- MOTOR - CILINDRADA -->
+                <div>
+                    <select class="browser-default custom-select seleccionador" id="cilindrada" onchange="filtradoAtributos()"></select>
+                </div>   
+
+                <!-- COMBUSTIBLE -->
+                <div>
+                    <select class="browser-default custom-select seleccionador" id="combustible" onchange="filtradoAtributos()"></select>
+                </div>
+
+                <!-- TRACCIÓN -->
+                <div>
+                    <select class="browser-default custom-select seleccionador" id="traccion" onchange="filtradoAtributos()"></select>
+                </div>
+
+                <!-- EMBRAGUE -->
+                <div>
+                    <select class="browser-default custom-select seleccionador" id="embrague" onchange="filtradoAtributos()">
+                        <option selected>Embrague</option>
+                        <option value="false">Manual</option>
+                        <option value="true">Automatico</option>
+                    </select>
+                </div>
+
+                <!-- CARROCERÍA -->
+                <div>
+                    <select class="browser-default custom-select seleccionador" id="carroceria" onchange="filtradoAtributos()"></select>
+                </div>
+
+                <!-- NÚMERO DE PLAZAS -->
+                <div>
+                    <select class="browser-default custom-select seleccionador" id="plazas" onchange="filtradoAtributos()"></select>
+                </div>
+
+                <!-- NÚMERO DE PUERTAS -->
+                <div>
+                    <select class="browser-default custom-select seleccionador" id="puertas" onchange="filtradoAtributos()"></select>
+                </div>
+
+                <!-- COLOR -->
+                <div>
+                    <select class="browser-default custom-select seleccionador" id="color" onchange="filtradoAtributos()"></select>
+                </div>
+
+            </form>
+        </div>
+    </div>
+
+    <div id="sideOrder" class="sidenav">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeOrd()">&times;</a>
+        <a class="navbar-brand" href="#"><img src="img/AdaptacarNombre.png" width="180px"></a>
+        <h3>Ordenar</h3>
+        <a class="order-btn" onclick="listaAnunciosOrden('precioDes')">Precio <i class="fas fa-sort-down"></i></a>
+        <a class="order-btn" onclick="listaAnunciosOrden('precioAsc')">Precio <i class="fas fa-sort-up"></i></a>
+        <a class="order-btn" onclick="listaAnunciosOrden('anyoDes')">Año <i class="fas fa-sort-down"></i></a>
+        <a class="order-btn" onclick="listaAnunciosOrden('anyoAsc')">Año <i class="fas fa-sort-up"></i></a>
+        <a class="order-btn" onclick="listaAnunciosOrden('kilometrosDes')">Kilometros <i class="fas fa-sort-down"></i></a>
+        <a class="order-btn" onclick="listaAnunciosOrden('kilometrosAsc')">Kilometros <i class="fas fa-sort-up"></i></a>
+    </div>
+
+    <div class="container-fluid topnav">
+        <a href="#" onclick="openFil()">
+            Filtros <i class="fas fa-filter"></i>
+        </a>
+        <a href="#" onclick="openOrd()">
+            Ordenar <i class="fas fa-sort-numeric-up"></i>
+        </a>
+        <a href="#" onclick="listaAnunciosOrden('novedades')">
+            Novedades <i class="far fa-newspaper"></i>
+        </a>
+        <a href="#" onclick="listaAnuncios()">
+            Mostrar todos
+        </a>
+    </div>
+
+    <article id="main" class="container"></article>
+
+    <!-- Footer -->
+    <footer class="page-footer font-small stylish-color-dark pt-4">
+        <!-- Footer Links -->
+        <div class="container text-center text-md-left">
+
+            <!-- Footer links -->
+            <div class="row text-center text-md-left mt-3 pb-3">
+
+                <img src="img/AdaptacarNombre.png" alt="">
+
+            </div>
+            <!-- Footer links -->
+
+
+            <!-- Call to action -->
+            <ul class="list-unstyled list-inline text-center py-2">
+                <li class="list-inline-item">
+                    <h5 class="mb-1">Puedes contactar con nosotros a través de estas plataformas: </h5>
+                </li>
+            </ul>
+            <!-- Call to action -->
+
+            <hr>
+
+            <!-- Social buttons -->
+            <ul class="list-unstyled list-inline text-center">
+                <li class="list-inline-item">
+                    <a class="btn-floating btn-fb mx-1">
+                        <i class="fab fa-facebook-f"> </i>
+                    </a>
+                </li>
+                <li class="list-inline-item">
+                    <a class="btn-floating btn-tw mx-1">
+                        <i class="fab fa-twitter"> </i>
+                    </a>
+                </li>
+                <li class="list-inline-item">
+                    <a class="btn-floating btn-gplus mx-1">
+                        <i class="fab fa-google-plus-g"> </i>
+                    </a>
+                </li>
+                <li class="list-inline-item">
+                    <a class="btn-floating btn-li mx-1">
+                        <i class="fab fa-linkedin-in"> </i>
+                    </a>
+                </li>
+                <li class="list-inline-item">
+                    <a class="btn-floating btn-li mx-1">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                </li>
+                <li class="list-inline-item">
+                    <a class="btn-floating btn-dribbble mx-1">
+                        <i class="fab fa-pinterest-p"></i>
+                    </a>
+                </li>
+            </ul>
+            <!-- Social buttons -->
+
+    </footer>
+    <!-- Footer -->
+
+</body>
+
+</html>
